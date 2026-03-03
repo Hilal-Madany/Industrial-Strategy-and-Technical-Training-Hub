@@ -48,12 +48,15 @@ Through the **[M.M.F. Trust](https://www.linkedin.com/company/m-m-f-trust/)**, w
 | Folder | Contents | Strategic Value |
 | :--- | :--- | :--- |
 | [📁 /07-Mechanical-Core-Vault](./07-Mechanical-Core-Vault) | **Technical Bible: Lube, Filtration, Fab, Combustion** | Core Engineering Depth |
+| [📁 /Healthcare-SOPs](./07-Mechanical-Core-Vault/06-Healthcare-Systems) | **CBAHI/JCI Compliant MGPS SOP** | High-Stakes Compliance |
 | [📁 /tender-commercial](./tender-commercial) | Bid Templates, Clause Analysis, BOM/BOQ | Profitability & Risk |
 | [📁 /technical-ops](./technical-ops) | Maintenance Guides & Technical SOPs | Operational Reliability |
 | [📁 /Mechanical-FM-SOP](./Mechanical-FM-SOP) | Lifecycle Mgmt & Facility Frameworks | Asset Longevity |
 | [📁 /mmf-trust-ngo](./mmf-trust-ngo) | Technical Career Guidance Roadmaps | Social Mobility |
 | [📁 /Community-Impact](./Community-Impact) | #NoToRacism Mission & Social Strategy | Shared Value |
 | [📁 /digital-assets](./digital-assets) | Scripts, Dashboards & Visual Assets | Efficiency |
+
+
 
 ---
 
