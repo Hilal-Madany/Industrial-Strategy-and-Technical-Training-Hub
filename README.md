@@ -4,7 +4,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Syed%20Hilal-blue?logo=linkedin)](https://www.linkedin.com/in/syed-hilal/)
 [![NGO](https://img.shields.io/badge/NGO-M.M.F.%20Trust-green)](https://www.linkedin.com/company/m-m-f-trust/)
 [![Newsletter](https://img.shields.io/badge/Newsletter-Engineering%20Concepts-orange)](https://www.linkedin.com/newsletters/engineering-concepts-6890010523396882432/)
-[![Mission](https://img.shields.io/badge/Mission-%23NoToRacism-red)](#-iv-social-engineering--ngo-mmf-trust)
+[![Mission](https://img.shields.io/badge/Mission-%23NoToRacism-red)](#-iii-social-engineering--ngo-mmf-trust)
 
 Based in Fatehpur, India, I bridge the gap between heavy mechanical engineering (**Accumen Techno-Commercial**), high-stakes industrial sales, and grassroots social impact.
 
@@ -43,19 +43,17 @@ Through the **[M.M.F. Trust](https://www.linkedin.com/company/m-m-f-trust/)**, w
 
 ---
 
-## 📂 Repository Navigation (Direct Links)
+## 📂 Repository Navigation (Verified Links)
 
 | Folder | Contents | Strategic Value |
 | :--- | :--- | :--- |
-| [📁 /Mechanical-Core-Vault](./07-Mechanical-Core-Vault) | **Technical Bible: Lube, Filtration, Fab, Combustion** | Core Engineering Depth |
-| [📁 /tender-commercial](./tender-commercial) | Bid Templates, Clause Analysis, BOM/BOQ | Profitability & Risk |
-| [📁 /technical-ops](./technical-ops) | Maintenance Guides & Technical SOPs | Operational Reliability |
-| [📁 /Mechanical-FM-SOP](./Mechanical-FM-SOP) | Lifecycle Mgmt & Facility Frameworks | Asset Longevity |
-| [📁 /mmf-trust-ngo](./mmf-trust-ngo) | Technical Career Guidance Roadmaps | Social Mobility |
-| [📁 /Community-Impact](./Community-Impact) | #NoToRacism Mission & Social Strategy | Shared Value |
-| [📁 /digital-assets](./digital-assets) | Scripts, Dashboards & Visual Assets | Efficiency |
-
-
+| [📁 Mechanical-Core-Vault](./07-Mechanical-Core-Vault) | **Technical Bible: Lube, Filtration, Fab, Combustion** | Core Engineering Depth |
+| [📁 Tender-Commercial](./tender-commercial) | Bid Templates, Clause Analysis, BOM/BOQ | Profitability & Risk |
+| [📁 Technical-Operations](./technical-ops) | Maintenance Guides & Medical Gas SOPs | Operational Reliability |
+| [📁 FM-SOP-Master](./Mechanical-FM-SOP) | Lifecycle Mgmt & Facility Frameworks | Asset Longevity |
+| [📁 MMF-Trust-NGO](./mmf-trust-ngo) | Technical Career Guidance Roadmaps | Social Mobility |
+| [📁 Community-Impact](./Community-Impact) | #NoToRacism Mission & Social Strategy | Shared Value |
+| [📁 Digital-Assets](./digital-assets) | Scripts, Dashboards & Visual Assets | Efficiency |
 
 ---
 
