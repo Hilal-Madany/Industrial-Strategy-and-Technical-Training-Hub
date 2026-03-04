@@ -10,13 +10,13 @@ An ASCF is defined as a high-efficiency filtration system that maintains a const
 
 Principle: The liquid enters a cylindrical stainless steel Wedge Wire element. Solids are trapped on the inner surface.The "Sensing" Principle: The system remains in "Filtration Mode" until the debris layer causes the Differential Pressure ($DP$) to rise.The "Purge" Principle: Once the $DP$ threshold is reached ($0.5$ kg/cm²), the Scanner Motor and Drain Valve activate. The system uses a "Vacuum Effect" to pull a small amount of clean water backward through the mesh to flush the dirt out.
 
-Identify these core components before operation:
+
+**Identify these core components before operation:**
 
 <p align="center">
-  <img src="Illustraion-2 ACF.jpg" width="600" alt="ACF Illustration">
-  <br>
-  <small><i>Illustration-2: ASCF Conceptual View</i></small>
-</p>
+<img src="ascf_concept.jpg" width="700" alt="ASCF Operational Concept">
+<em><b>Figure 1:</b> Conceptual view of the internal scanner and flow path.</em>
+<sup style="color: gray;">
 
 * **Filter Element:** Stainless steel wedge wire mesh.
 * **DP Switch:** Sensor measuring pressure difference ($P_{in} - P_{out}$).
