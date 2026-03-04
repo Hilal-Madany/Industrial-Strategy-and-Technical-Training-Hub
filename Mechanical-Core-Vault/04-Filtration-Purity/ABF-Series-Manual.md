@@ -89,6 +89,48 @@ def execute_backwash_cycle(current_dp):
 - [ ] **Manual Drain:** Use the bottom valve for evacuation during shutdowns.
 
 > **⚠️ WARNING:** Never attempt to open the filter cover while the system is pressurized. Always verify zero pressure on the gauge before maintenance.
+---
 
+## 🧪 6. System Verification (Simulation)
+Before deploying the logic to the PLC, use this Python script in **Google Colab** to simulate the filter's behavior. 
+
+
+
+### 🐍 Execution Script
+```python
+import time
+import random
+
+# Simulated Filter Logic
+def start_simulation():
+    pressure = 0.1
+    print("🚀 ABF Monitoring System Started...")
+    
+    while pressure < 0.7:
+        pressure = round(pressure + 0.1, 2)
+        print(f"Current DP: {pressure} kg/cm²")
+        time.sleep(0.5)
+        
+        if pressure >= 0.5:
+            print("\n🚨 TRIGGER: High Pressure Detected!")
+            print("🔓 DRAIN: Valve Opening...")
+            print("⏩ MOTOR: Rotating FORWARD (Cleaning)")
+            time.sleep(2)
+            print("⏪ MOTOR: Rotating BACKWARD (Homing)")
+            time.sleep(1)
+            print("🔒 DRAIN: Valve Closing.")
+            print("✅ STATUS: Filter Cleaned.\n")
+            break
+
+start_simulation()
+
+```
+---
+🛠️ How to Test:
+Open Colab: Go to Google Colab.
+
+Paste & Run: Copy the code block above into a cell and press Play.
+
+Verify: Ensure the Forward and Backward motor actions trigger exactly at 0.5 kg/cm².
 ---
 **© 2026 Syed Hilaluddin Madany | Global Solutions Hub**
