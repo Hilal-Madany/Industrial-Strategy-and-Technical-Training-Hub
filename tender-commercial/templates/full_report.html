@@ -2,96 +2,89 @@
 <html>
 <head>
     <style>
-        /* This ensures the document fits exactly on A4 */
-        body { 
-            font-family: Arial, sans-serif; 
-            font-size: 10px; /* Smaller font to fit all details */
-            margin: 0; 
-            padding: 5px; 
-            color: #000; 
-        }
-        .main-border { 
-            border: 1.5px solid #000; 
-            padding: 10px; 
-            width: 750px; /* Fixed width for A4 consistency */
-            margin: auto;
-        }
-        .header-tbl, .data-tbl { width: 100%; border-collapse: collapse; margin-bottom: 5px; }
-        .header-tbl td, .data-tbl th, .data-tbl td { border: 1px solid #000; padding: 4px; }
-        .section-head { 
-            background: #222; 
-            color: #fff; 
-            padding: 3px; 
-            font-weight: bold; 
-            margin-top: 5px; 
-            text-align: center;
-        }
-        th { background: #f0f0f0; width: 35%; }
-
-        /* Hide everything else when printing */
+        body { font-family: 'Times New Roman', serif; color: #000; line-height: 1.5; margin: 0; }
+        .page { width: 210mm; min-height: 297mm; padding: 20mm; margin: 10mm auto; background: #fff; border: 1px solid #ddd; }
+        .page-break { page-break-after: always; }
+        .header-box { border: 2px solid #000; padding: 15px; text-align: center; margin-bottom: 30px; }
+        .section-title { background: #f2f2f2; border: 1px solid #000; padding: 10px; font-weight: bold; margin-top: 30px; text-transform: uppercase; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #000; padding: 12px; text-align: left; }
+        th { background: #fafafa; width: 40%; }
+        .score-box { border: 3px double #000; padding: 20px; text-align: center; font-size: 20px; font-weight: bold; margin-top: 40px; }
+        
         @media print {
-            @page { size: A4; margin: 0.5cm; }
-            .no-print { display: none !important; }
-            .main-border { border: 1px solid #000; width: 100%; }
-        }
-
-        .print-btn {
-            background-color: #008CBA; 
-            color: white; 
-            padding: 8px 16px; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer;
-            margin-bottom: 10px;
+            .no-print { display: none; }
+            .page { border: none; margin: 0; width: 100%; }
         }
     </style>
 </head>
 <body>
-    <div class="no-print" style="text-align: center;">
-        <button class="print-btn" onclick="window.print()">📥 Download as PDF / Print Report</button>
+    <div class="no-print" style="text-align:center; padding: 20px;">
+        <button onclick="window.print()" style="padding: 10px 40px; background: #003366; color: white; cursor: pointer; border-radius: 5px; font-weight: bold;">PRINT FULL 15-PAGE STYLE REPORT</button>
     </div>
 
-    <div class="main-border">
-        <table class="header-tbl">
-            <tr>
-                <td width="20%"><strong>ACCUMEN</strong></td>
-                <td width="60%" style="text-align:center;"><strong>VENDOR ASSESSMENT SHEET (TENDER FORM)</strong></td>
-                <td width="20%" style="text-align:right;">{{ date }}</td>
-            </tr>
+    <div class="page">
+        <div class="header-box">
+            <h1 style="margin:0;">VENDOR ASSESSMENT REPORT</h1>
+            <p>TECHNICAL & COMMERCIAL EVALUATION</p>
+            <p>Report Date: {{ date }}</p>
+        </div>
+
+        <div class="section-title">1.0 Company Identification</div>
+        <table>
+            <tr><th>Name of Vendor</th><td>{{ d.name }}</td></tr>
+            <tr><th>Registered Office</th><td>{{ d.reg_office }}</td></tr>
+            <tr><th>Factory / Works</th><td>{{ d.works_addr }}</td></tr>
+            <tr><th>Contact Email</th><td>{{ d.email }}</td></tr>
+            <tr><th>Contact Mobile</th><td>{{ d.tel }}</td></tr>
         </table>
 
-        <div class="section-head">1. GENERAL & STATUTORY</div>
-        <table class="data-tbl">
-            <tr><th>Name</th><td>{{ d.name }}</td></tr>
-            <tr><th>Offices</th><td>Reg: {{ d.reg_office }} | Works: {{ d.works_addr }}</td></tr>
-            <tr><th>PAN / GST / MSME</th><td>{{ d.pan }} / {{ d.gst }} / {{ d.msme_no }} ({{ d.msme_type }})</td></tr>
+        <div class="section-title">2.0 Statutory Compliance</div>
+        <table>
+            <tr><th>Income Tax PAN</th><td>{{ d.pan }}</td></tr>
+            <tr><th>GST Registration</th><td>{{ d.gst }}</td></tr>
+            <tr><th>MSME No. / Type</th><td>{{ d.msme_no }} / {{ d.msme_type }}</td></tr>
         </table>
+        <div class="page-break"></div>
+    </div>
 
-        <div class="section-head">2. TECHNICAL & MACHINERY</div>
-        <table class="data-tbl">
-            <tr><th>Category</th><td>{{ d.is_dealer }} - {{ d.prod_category | join(', ') }}</td></tr>
+    <div class="page">
+        <div class="section-title">3.0 Technical & Manufacturing Profile</div>
+        <table>
+            <tr><th>Role</th><td>{{ d.is_dealer }}</td></tr>
+            <tr><th>Products</th><td>{{ d.prod_category | join(', ') }}</td></tr>
+            <tr><th>Description</th><td>{{ d.main_products }}</td></tr>
             <tr><th>Machinery</th><td>{{ d.machinery }}</td></tr>
-            <tr><th>In-house Testing</th><td>{{ d.inhouse_test }}</td></tr>
+            <tr><th>Covered Area</th><td>{{ d.area }} Sq. m.</td></tr>
+            <tr><th>Connected Power</th><td>{{ d.power }} kVA</td></tr>
         </table>
 
-        <div class="section-head">3. PERFORMANCE & REFERENCES</div>
-        <table class="data-tbl">
-            <tr><th>References</th><td>1. {{ d.ref_1 }} <br> 2. {{ d.ref_2 }}</td></tr>
-            <tr><th>Govt. Experience</th><td>{{ d.govt_exp }}</td></tr>
+        <div class="section-title">4.0 Human Resources</div>
+        <table>
+            <tr><th>Graduate Engineers</th><td>{{ d.grad_staff }}</td></tr>
+            <tr><th>Diploma Holders</th><td>{{ d.diploma_staff }}</td></tr>
+            <tr><th>Skilled Workers</th><td>{{ d.skilled_workers }}</td></tr>
         </table>
+        <div class="page-break"></div>
+    </div>
 
-        <div class="section-head">4. FINANCIALS & SCORE</div>
-        <table class="data-tbl">
-            <tr><th>Turnover (Yr 3)</th><td>INR {{ d.turnover_3 }} Cr</td></tr>
+    <div class="page">
+        <div class="section-title">5.0 Financials & Performance</div>
+        <table>
+            <tr><th>Latest Turnover</th><td>INR {{ d.turnover_3 }} Cr</td></tr>
             <tr><th>Net Worth</th><td>INR {{ d.networth }} Cr</td></tr>
-            <tr style="background:#eee; font-weight:bold;">
-                <th>TOTAL COMPLIANCE SCORE</th><td>{{ d.score }} / 100</td>
-            </tr>
+            <tr><th>Client References</th><td>{{ d.ref_1 }} <br> {{ d.ref_2 }}</td></tr>
+            <tr><th>PSU Experience</th><td>{{ d.govt_exp }}</td></tr>
         </table>
 
-        <div style="margin-top: 25px; display: flex; justify-content: space-between;">
-            <div style="text-align: center; width: 150px; border-top: 1px solid #000;">System Verified</div>
-            <div style="text-align: center; width: 150px; border-top: 1px solid #000;">Authorised Signatory</div>
+        <div class="score-box">
+            FINAL COMPLIANCE SCORE: {{ d.score }}%<br>
+            <span style="font-size:14px;">STATUS: {% if d.score >= 60 %}QUALIFIED{% else %}CONDITIONALLY QUALIFIED{% endif %}</span>
+        </div>
+
+        <div style="margin-top: 100px; display: flex; justify-content: space-between;">
+            <div style="text-align: center; border-top: 1px solid #000; width: 200px;">Internal Verification</div>
+            <div style="text-align: center; border-top: 1px solid #000; width: 200px;">Authorised Signatory</div>
         </div>
     </div>
 </body>
