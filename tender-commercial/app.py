@@ -96,21 +96,29 @@ elif st.session_state.step == 7:
 
 # --- STEP 8: FINAL PREVIEW ---
 elif st.session_state.step == 8:
-    st.header("8. Final Assessment Report")
+    st.header("8. Final Review & One-Page Print")
     
-    # Logic for Scoring
+    # Calculate Score
     score = 0
-    if st.session_state.data.get('iso9001') == "Yes": score += 20
-    if st.session_state.data.get('govt_exp') == "Yes": score += 20
-    if st.session_state.data.get('inhouse_test') == "Yes": score += 20
-    if st.session_state.data.get('turnover_3', 0) > 1: score += 20
-    if st.session_state.data.get('q_manual') == "Yes": score += 20
+    if st.session_state.data.get('iso9001') == "Yes": score += 25
+    if st.session_state.data.get('inhouse_test') == "Yes": score += 25
+    if st.session_state.data.get('q_manual') == "Yes": score += 25
+    if st.session_state.data.get('turnover_3', 0) > 1.5: score += 25
     st.session_state.data['score'] = score
 
     try:
         template = env.get_template('full_report.html')
-        report_html = template.render(d=st.session_state.data, date=datetime.date.today().strftime("%d/%m/%Y"))
-        st.components.v1.html(report_html, height=1500, scrolling=True)
-        st.success("✅ Form Complete. Press Ctrl+P to Print/Save as PDF.")
+        report_html = template.render(
+            d=st.session_state.data, 
+            date=datetime.date.today().strftime("%d/%m/%Y")
+        )
+        
+        # We use a large height (1500) so the user can see the whole form
+        st.components.v1.html(report_html, height=1200, scrolling=True)
+        
+        st.warning("⚠️ **Note:** When the print window opens, set **'Layout' to 'Portrait'** and **'Margins' to 'Minimum'** to ensure it fits on one page.")
+        
+        if st.button("⬅️ Back to Edit"): st.session_state.step = 1
+
     except Exception as e:
-        st.error(f"Error: {e}")
+        st.error(f"Template Error: {e}")
