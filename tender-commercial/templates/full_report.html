@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; color: #333; }
+        .header-table { width: 100%; border: 2px solid #000; margin-bottom: 20px; }
+        .header-table td { padding: 10px; border: 1px solid #000; font-weight: bold; text-align: center; }
+        .section-title { background: #003366; color: white; padding: 8px; font-weight: bold; margin: 20px 0 10px 0; border-radius: 4px; }
+        table.data-table { width: 100%; border-collapse: collapse; }
+        table.data-table th, table.data-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        table.data-table th { background-color: #f2f2f2; width: 35%; }
+        .score-card { border: 2px dashed #28a745; background: #f9fff9; padding: 20px; margin-top: 30px; text-align: center; }
+        .footer-sig { margin-top: 60px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <table class="header-table">
+        <tr>
+            <td rowspan="2" width="20%"><img src="https://via.placeholder.com/80" alt="Logo"></td>
+            <td width="60%">VENDOR ASSESSMENT REPORT</td>
+            <td width="20%">FORM NO: F-060-01</td>
+        </tr>
+        <tr>
+            <td>ACCUMEN TECHNO MARKETING SOLUTION</td>
+            <td>REV: 01</td>
+        </tr>
+    </table>
+
+    <div class="section-title">1. COMPANY PROFILE</div>
+    <table class="data-table">
+        <tr><th>Supplier Name</th><td>{{ d.name }}</td></tr>
+        <tr><th>Registered Office</th><td>{{ d.reg_office }}</td></tr>
+        <tr><th>Works Address</th><td>{{ d.works_addr }}</td></tr>
+        <tr><th>MSME Registration</th><td>{{ d.msme_type }} (No: {{ d.msme_no }})</td></tr>
+    </table>
+
+    <div class="section-title">2. TECHNICAL & MANUFACTURING</div>
+    <table class="data-table">
+        <tr><th>In-house Testing</th><td>{{ d.inhouse_test }}</td></tr>
+        <tr><th>Machinery Details</th><td>{{ d.machinery }}</td></tr>
+        <tr><th>Skilled Workforce</th><td>{{ d.skilled_workers }} Personnel</td></tr>
+    </table>
+
+    <div class="score-card">
+        <h2 style="margin:0; color: #155724;">FINAL ASSESSMENT SCORE: {{ d.score }}%</h2>
+        <p>Status: <strong>PROVISIONALLY QUALIFIED</strong></p>
+    </div>
+
+    <div class="footer-sig">
+        <div style="float:left; border-top: 1px solid #000; width: 200px; text-align: center;">Verified by System</div>
+        <div style="float:right; border-top: 1px solid #000; width: 200px; text-align: center;">Authorized Signatory Seal</div>
+    </div>
+</body>
+</html>
