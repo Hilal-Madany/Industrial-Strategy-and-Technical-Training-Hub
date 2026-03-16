@@ -70,7 +70,7 @@ class MGPSAuditor:
             ])
 
         # 3. Professional CSV Export
-        with open(filename, mode='w', newline='') as file:
+        with open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow([f"AUDIT REPORT: {self.hospital_name}"])
             writer.writerow([f"Capacity: {self.capacity}L | Expansion: 1:{self.expansion_ratio}"])
